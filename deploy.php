@@ -7,10 +7,12 @@ require 'recipe/laravel.php';
 set('application', 'zero_downtime_deploy');
 
 // Project repository
-set('repository', 'git@github.com:tiennv-1572/test_deploy.git');
+set('repository', 'git@github.com:huongnx-0984/autodeploy_example.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', false);
+
+set('ssh_multiplexing', false);
 
 // Shared files/dirs between deploys
 add('shared_files', [".env"]);
@@ -30,6 +32,11 @@ add('writable_dirs', [
 host('10.0.4.18')
     ->user('deploy')
     ->stage('staging')
+    ->set('deploy_path', '~/{{application}}');
+
+host('10.0.4.18')
+    ->user('deploy')
+    ->stage('production')
     ->set('deploy_path', '~/{{application}}');
 
 // Tasks
