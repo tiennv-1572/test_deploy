@@ -27,14 +27,14 @@ add('writable_dirs', [
 ]);
 
 // Hosts
-host('10.0.4.18')
+host('staging')
+    ->hostname('10.0.4.18')
     ->user('deploy')
-    ->stage('staging')
     ->set('deploy_path', '~/{{application}}');
 
-host('10.0.4.18')
+host('production')
+    ->hostname('10.0.4.18')
     ->user('deploy')
-    ->stage('production')
     ->set('deploy_path', '~/{{application}}');
 
 // Tasks
