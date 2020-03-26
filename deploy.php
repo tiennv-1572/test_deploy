@@ -7,7 +7,7 @@ require 'recipe/laravel.php';
 set('application', 'zero_downtime_deploy');
 
 // Project repository
-set('repository', 'git@github.com:huongnx-0984/autodeploy_example.git');
+set('repository', 'git@github.com:tiennv-1572/test_deploy.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', false);
