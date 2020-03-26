@@ -12,8 +12,6 @@ set('repository', 'git@github.com:huongnx-0984/autodeploy_example.git');
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', false);
 
-set('ssh_multiplexing', false);
-
 // Shared files/dirs between deploys
 add('shared_files', [".env"]);
 add('shared_dirs', ["storage"]);
