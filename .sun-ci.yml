@@ -21,12 +21,11 @@ jobs:
   - key: comopser_vendor_$CI_BRANCH
     paths:
       - vendor
-  before_script:
+  script:
   - cp .env.testing.example .env.testing
   - composer install
   - php artisan key:generate
   - php artisan migrate
-  script:
   - composer sniff
   - composer test
   after_script:
