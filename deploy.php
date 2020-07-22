@@ -28,7 +28,7 @@ add('writable_dirs', [
 
 // Hosts
 host('staging')
-    ->hostname('10.0.4.18')
+    ->hostname('10.0.7.101')
     ->user('deploy')
     ->set('deploy_path', '~/{{application}}');
 
