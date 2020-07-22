@@ -34,6 +34,7 @@ jobs:
   only:
     branches:
     - master
+    - develop
     events:
     - pull_request
   except:
