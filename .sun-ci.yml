@@ -27,7 +27,6 @@ jobs:
     - composer install
     - php artisan key:generate
     - php artisan migrate -v
-    - composer sniff
     - composer test
     after_script:
     - echo "Finish job"
