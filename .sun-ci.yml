@@ -5,7 +5,7 @@ stages:
   - deploy
 
 jobs:
-  build:
+  test:
     stage: build
     image: sunasteriskrnd/php-workspace:7.4
     services:
@@ -40,6 +40,8 @@ jobs:
     before_script:
     - composer require deployer/deployer --dev
     script:
+    - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
+    - ssh-add ~/.ssh/id_rsa
     - apk add openssh
     - php vendor/bin/dep deploy staging -vv
     only:
