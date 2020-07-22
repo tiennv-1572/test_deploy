@@ -40,7 +40,7 @@ jobs:
     before_script:
     - composer require deployer/deployer --dev
     script:
-    - sudo apt install openssh-client
+    - apt install openssh-client
     - php vendor/bin/dep deploy staging -vv
     only:
       branches:
