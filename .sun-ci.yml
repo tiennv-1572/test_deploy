@@ -34,13 +34,9 @@ jobs:
   only:
     branches:
     - master
-    events:
-    - pull_request
-  except:
-    branches:
     - develop
     events:
-    - push
+    - pull_request
 
 - name: deploy:staging
   stage: deploy
