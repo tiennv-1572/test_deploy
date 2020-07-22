@@ -34,8 +34,6 @@ jobs:
       branches:
       - master
       - develop
-      events:
-      - pull_request
   deploy:
     stage: deploy
     image: sunasteriskrnd/php-workspace:7.4
