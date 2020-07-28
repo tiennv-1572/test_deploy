@@ -45,8 +45,6 @@ jobs:
     - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
     - chmod 600 /root/.ssh/id_rsa
     - echo "Host *\n\tStrictHostKeyChecking no\n\tIdentityFile /root/.ssh/id_rsa\n\tAddKeysToAgent yes\n" >> /root/.ssh/config
-    - eval `ssh-agent -s`
-    - ssh-add ~/.ssh/id_rsa
     - php vendor/bin/dep deploy staging -vv
     only:
       branches:
