@@ -42,8 +42,8 @@ jobs:
     script:
     - mkdir ~/.ssh
     - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
-    - ssh-add ~/.ssh/id_rsa
     - apk add openssh
+    - ssh-add ~/.ssh/id_rsa
     - php vendor/bin/dep deploy staging -vv
     only:
       branches:
