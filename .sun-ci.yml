@@ -37,16 +37,17 @@ jobs:
   deploy:
     stage: deploy
     image: sunasteriskrnd/php-workspace:7.4
-    before_script:
-    - composer require deployer/deployer --dev
+#    before_script:
+#    - composer require deployer/deployer --dev
     script:
-    - apk add openssh
-    - eval `ssh-agent -s`
-    - mkdir ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
-    - chmod 600 /root/.ssh/id_rsa
-    - ssh-add ~/.ssh/id_rsa
-    - php vendor/bin/dep deploy staging -vv
+    - ssh nguyen.van.tien@10.0.7.101
+#    - apk add openssh
+#    - eval `ssh-agent -s`
+#    - mkdir ~/.ssh
+#    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
+#    - chmod 600 /root/.ssh/id_rsa
+#    - ssh-add ~/.ssh/id_rsa
+#    - php vendor/bin/dep deploy staging -vv
     only:
       branches:
       - develop
