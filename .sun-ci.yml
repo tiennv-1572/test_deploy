@@ -41,7 +41,6 @@ jobs:
     - composer require deployer/deployer --dev
     script:
     - apk add openssh
-    - ssh -T nguyen.van.tien@10.0.7.101
     - mkdir ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
     - chmod 600 /root/.ssh/id_rsa

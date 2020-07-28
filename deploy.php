@@ -28,8 +28,8 @@ add('writable_dirs', [
 
 // Hosts
 host('staging')
-    ->hostname('10.0.7.101')
-    ->user('nguyen.van.tien')
+    ->hostname('3.10.175.62')
+    ->user('deploy')
     ->set('deploy_path', '~/{{application}}');
 
 host('production')
