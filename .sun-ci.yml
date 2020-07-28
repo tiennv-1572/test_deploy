@@ -43,6 +43,7 @@ jobs:
     - mkdir ~/.ssh
     - echo $SSH_PRIVATE_KEY > ~/.ssh/id_rsa
     - apk add openssh
+    - eval `ssh-agent -s`
     - ssh-add ~/.ssh/id_rsa
     - php vendor/bin/dep deploy staging -vv
     only:
