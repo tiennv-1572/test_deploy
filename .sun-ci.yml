@@ -40,8 +40,8 @@ jobs:
 #    before_script:
 #    - composer require deployer/deployer --dev
     script:
+    - apk add openssh
     - ssh nguyen.van.tien@10.0.7.101
-#    - apk add openssh
 #    - eval `ssh-agent -s`
 #    - mkdir ~/.ssh
 #    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
