@@ -40,8 +40,7 @@ jobs:
 #    before_script:
 #    - composer require deployer/deployer --dev
     script:
-      - echo "hihi" > ~/hihi.txt
-      - scp ~/hihi.txt nguyen.van.tien@10.0.7.101:~/
+      - ssh -T nguyen.van.tien@10.0.7.101
 #    - apk add openssh
 #    - mkdir ~/.ssh
 #    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
