@@ -37,7 +37,7 @@ jobs:
   deploy:
     stage: deploy
     image: sunasteriskrnd/php-workspace:7.4
-    before_script:
+#    before_script:
 #    - composer require deployer/deployer --dev
     script:
       - echo "hihi" > ~/hihi.txt
