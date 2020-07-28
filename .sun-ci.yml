@@ -38,14 +38,18 @@ jobs:
     stage: deploy
     image: sunasteriskrnd/php-workspace:7.4
     before_script:
-    - composer require deployer/deployer --dev
+#    - composer require deployer/deployer --dev
     script:
-    - apk add openssh
-    - mkdir ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
-    - chmod 600 /root/.ssh/id_rsa
-    - echo "Host *\n\tStrictHostKeyChecking no\n\tIdentityFile /root/.ssh/id_rsa\n\tAddKeysToAgent yes\n" >> /root/.ssh/config
-    - php vendor/bin/dep deploy staging -vv
+      - echo "hihi" > ~/hihi.txt
+      - scp ~/hihi.txt nguyen.van.tien@10.0.7.101:~/
+#    - apk add openssh
+#    - mkdir ~/.ssh
+#    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
+#    - chmod 600 /root/.ssh/id_rsa
+#    - echo "Host *\n\tStrictHostKeyChecking no\n\tIdentityFile /root/.ssh/id_rsa\n\tAddKeysToAgent yes\n" >> /root/.ssh/config
+#    - eval `ssh-agent -s`
+#    - ssh-add ~/.ssh/id_rsa
+#    - php vendor/bin/dep deploy staging -vv
     only:
       branches:
       - develop
