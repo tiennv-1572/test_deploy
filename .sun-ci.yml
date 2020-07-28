@@ -5,49 +5,50 @@ stages:
   - deploy
 
 jobs:
-  test:
-    stage: build
-    image: sunasteriskrnd/php-workspace:7.4
-    services:
-    - image: mysql:5.7
-      name: mysql_test
-      environment:
-        MYSQL_DATABASE: test_database
-        MYSQL_USER: test_username
-        MYSQL_PASSWORD: test_password
-        MYSQL_ROOT_PASSWORD: root
-    environment:
-      APP_ENV: testing
-    cache:
-    - key: comopser_vendor_$CI_BRANCH
-      paths:
-        - vendor
-    script:
-    - cp .env.testing.example .env.testing
-    - composer install
-    - php artisan key:generate
-    - php artisan migrate -v
-    - composer test
-    after_script:
-    - echo "Finish job"
-    only:
-      branches:
-      - master
-      - develop
+#  test:
+#    stage: build
+#    image: sunasteriskrnd/php-workspace:7.4
+#    services:
+#    - image: mysql:5.7
+#      name: mysql_test
+#      environment:
+#        MYSQL_DATABASE: test_database
+#        MYSQL_USER: test_username
+#        MYSQL_PASSWORD: test_password
+#        MYSQL_ROOT_PASSWORD: root
+#    environment:
+#      APP_ENV: testing
+#    cache:
+#    - key: comopser_vendor_$CI_BRANCH
+#      paths:
+#        - vendor
+#    script:
+#    - cp .env.testing.example .env.testing
+#    - composer install
+#    - php artisan key:generate
+#    - php artisan migrate -v
+#    - composer test
+#    after_script:
+#    - echo "Finish job"
+#    only:
+#      branches:
+#      - master
+#      - develop
   deploy:
     stage: deploy
     image: sunasteriskrnd/php-workspace:7.4
-    before_script:
-    - composer require deployer/deployer --dev
+#    before_script:
+#    - composer require deployer/deployer --dev
     script:
     - apk add openssh
-    - mkdir ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
-    - chmod 600 /root/.ssh/id_rsa
-    - echo "Host *\n\tStrictHostKeyChecking no\n\tIdentityFile /root/.ssh/id_rsa\n\tAddKeysToAgent yes\n" >> /root/.ssh/config
-    - eval `ssh-agent -s`
-    - ssh-add ~/.ssh/id_rsa
-    - php vendor/bin/dep deploy staging -vv
+    - ssh -T deploy@3.10.175.62
+#    - mkdir ~/.ssh
+#    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
+#    - chmod 600 /root/.ssh/id_rsa
+#    - echo "Host *\n\tStrictHostKeyChecking no\n\tIdentityFile /root/.ssh/id_rsa\n\tAddKeysToAgent yes\n" >> /root/.ssh/config
+#    - eval `ssh-agent -s`
+#    - ssh-add ~/.ssh/id_rsa
+#    - php vendor/bin/dep deploy staging -vv
     only:
       branches:
       - develop
