@@ -41,6 +41,7 @@ jobs:
 #    - composer require deployer/deployer --dev
     script:
     - apk add openssh
+    - ssh-keygen -R 3.10.175.62
     - ssh -T deploy@3.10.175.62
 #    - mkdir ~/.ssh
 #    - echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
