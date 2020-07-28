@@ -40,7 +40,6 @@ jobs:
     before_script:
     - composer require deployer/deployer --dev
     script:
-    - ssh nguyen.van.tien@10.0.7.101
     - apk add openssh
     - eval `ssh-agent -s`
     - mkdir ~/.ssh
